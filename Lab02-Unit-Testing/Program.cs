@@ -28,7 +28,7 @@ namespace Lab02_Unit_Testing
 
             //Test userinput via string
             string userInput = Console.ReadLine();
-            Console.WriteLine("Your input was recieved." + userInput);
+            AnalyzeOptions(userInput);
 
         }
 
@@ -40,7 +40,14 @@ namespace Lab02_Unit_Testing
             }
         }
 
+        static void ViewBalance()
+        {
+            Console.WriteLine("Your Balance is " + UserBalance);
+            Console.WriteLine("Press any key to go back to main menu");
+            Console.ReadKey();
+            MainMenu();
 
+        }
        
     }
 }
