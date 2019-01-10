@@ -33,20 +33,41 @@ namespace Lab02_Unit_Testing
         }
 
         static void AnalyzeOptions(string userInput)
-        {
+        {   //different user options and calling the appropriate function for the option selected
             if (userInput == "1")
             {
                 ViewBalance();
             }
+
+            if (userInput =="2")
+            {
+                WithdrawMoney();
+            }
         }
 
         static void ViewBalance()
-        {
+        {   //Method for showing amount of money in account
             Console.WriteLine("Your Balance is " + UserBalance);
             Console.WriteLine("Press any key to go back to main menu");
             Console.ReadKey();
             MainMenu();
 
+        }
+
+        static int WithdrawMoney()
+        {   //Method for withdrawing money and decreasing userBalance
+            Console.WriteLine("Enter amount of money you wish to withdraw");
+            //Use try and catch here
+
+
+            string userInput = Console.ReadLine();
+            int amount = Convert.ToInt32(userInput);
+            UserBalance = UserBalance - amount;
+
+            Console.WriteLine("Press any key to go back to main menu");
+            Console.ReadKey();
+            MainMenu();
+            return UserBalance;
         }
        
     }
