@@ -29,4 +29,4 @@ Select options as they appear.
 
 #Result
 
-![array_shift_pic](../assets/Lab02-Unit-Testing.jpg)
+![Screenshot](../../assets/Lab02-Unit-Testing.jpg)
