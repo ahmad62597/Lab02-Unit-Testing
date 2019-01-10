@@ -47,8 +47,8 @@ namespace Lab02_Unit_Testing
                 if (userInput == "2")
                 {
                     WithdrawMoney();
-                }
 
+                }
                 if (userInput == "3")
                 {
                     DepositMoney();
