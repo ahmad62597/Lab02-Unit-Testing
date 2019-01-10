@@ -43,6 +43,12 @@ namespace Lab02_Unit_Testing
             {
                 WithdrawMoney();
             }
+
+            if (userInput == "3")
+            {
+                DepositMoney();
+            }
+
         }
 
         static void ViewBalance()
@@ -63,12 +69,28 @@ namespace Lab02_Unit_Testing
             string userInput = Console.ReadLine();
             int amount = Convert.ToInt32(userInput);
             UserBalance = UserBalance - amount;
-
+            //After withdrawing amount of money, return user to the main menu
             Console.WriteLine("Press any key to go back to main menu");
             Console.ReadKey();
             MainMenu();
             return UserBalance;
         }
+
+        static int DepositMoney()
+        {
+            //Method for depositing money and increasing UserBalance
+            Console.WriteLine("Enter amount of money you wish to deposit");
+
+            string userInput = Console.ReadLine();
+            int amount = Convert.ToInt32(userInput);
+            UserBalance = UserBalance + amount;
+            //After adding amount of money, return user to the main menu
+            Console.WriteLine("Press any key to go back to main menu");
+            Console.ReadKey();
+            MainMenu();
+            return UserBalance;
+        }
+
        
     }
 }
