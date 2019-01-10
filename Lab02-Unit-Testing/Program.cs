@@ -25,6 +25,7 @@ namespace Lab02_Unit_Testing
             Console.WriteLine("1.View Balance");
             Console.WriteLine("2.Withdraw Money");
             Console.WriteLine("3.Add Money");
+            Console.WriteLine("Press any other key to quit.");
 
             //Test userinput via string
             string userInput = Console.ReadLine();
@@ -34,14 +35,37 @@ namespace Lab02_Unit_Testing
 
         static void AnalyzeOptions(string userInput)
         {   //different user options and calling the appropriate function for the option selected
-            if (userInput == "1")
+
+            try
             {
-                ViewBalance();
+
+                if (userInput == "1")
+                {
+                    ViewBalance();
+                }
+
+                if (userInput == "2")
+                {
+                    WithdrawMoney();
+
+                }
+                if (userInput == "3")
+                {
+                    DepositMoney();
+                }
             }
 
-            if (userInput =="2")
+            catch (Exception e)
             {
-                WithdrawMoney();
+                Console.WriteLine("Please select a number.");
+
+            }
+
+            finally
+            {
+
+
+                Console.ReadKey();
             }
         }
 
@@ -64,11 +88,35 @@ namespace Lab02_Unit_Testing
             int amount = Convert.ToInt32(userInput);
             UserBalance = UserBalance - amount;
 
+            //if (UserBalance > 0)
+            //{
+            //    Console.WriteLine("Sorry. Not enough moniez.");
+
+            //}
+
+            //After withdrawing amount of money, return user to the main menu
+            Console.WriteLine("Press any key to go back to main menu");
+            Console.ReadKey();
+            MainMenu();
+            return UserBalance;
+            
+        }
+
+        static int DepositMoney()
+        {
+            //Method for depositing money and increasing UserBalance
+            Console.WriteLine("Enter amount of money you wish to deposit");
+
+            string userInput = Console.ReadLine();
+            int amount = Convert.ToInt32(userInput);
+            UserBalance = UserBalance + amount;
+            //After adding amount of money, return user to the main menu
             Console.WriteLine("Press any key to go back to main menu");
             Console.ReadKey();
             MainMenu();
             return UserBalance;
         }
+
        
     }
 }
